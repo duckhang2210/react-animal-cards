@@ -1,26 +1,27 @@
-import React from 'react';
+import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+class App extends Component {
+  constructor() {
+    super();
 
+    this.state = {
+      animals: [
+        { name: 'Tiger', id: 'anm0' },
+        { name: 'Dolphin', id: 'anm1' },
+        { name: 'Mockingbird', id: 'anm2' },
+      ],
+    };
+  }
+  render() {
+    return (
+      <div className='App'>
+        {this.state.animals.map((animal) => (
+          <h1 key={animal.id}> {animal.name} </h1>
+        ))}
+      </div>
+    );
+  }
+}
 export default App;

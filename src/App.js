@@ -19,11 +19,8 @@ class App extends Component {
   render() {
     return (
       <div className='App'>
-        <CardList>
-          {this.state.villagers.map((villager) => (
-            <h1 key={villager.id}> {villager.name} </h1>
-          ))}
-        </CardList>
+        <input type='search' placeholder='Search villagers' />
+        <CardList villagers={this.state.villagers} />
       </div>
     );
   }

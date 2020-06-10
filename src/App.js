@@ -9,7 +9,7 @@ class App extends Component {
 
     this.state = {
       villagers: [],
-      searchField: '',
+      searchField: ''
     };
   }
 
@@ -18,6 +18,11 @@ class App extends Component {
       .then((response) => response.json())
       .then((users) => this.setState({ villagers: users }));
   }
+
+  handleChange = (e) => {
+    this.setState({ searchField: e.target.value });
+  };
+
   render() {
     const { villagers, searchField } = this.state;
     const filteredVillager = villagers.filter((villager) =>
@@ -25,10 +30,11 @@ class App extends Component {
     );
 
     return (
-      <div className='App'>
+      <div className="App">
+        <h1> Not a Monster </h1>
         <SearchBox
-          placeholder='Search villagers'
-          handleChange={(e) => this.setState({ searchField: e.target.value })}
+          placeholder="Search villagers"
+          handleChange={this.handleChange}
         />
         <CardList villagers={filteredVillager} />
       </div>
